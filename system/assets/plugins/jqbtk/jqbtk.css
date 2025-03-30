@@ -1,0 +1,41 @@
+.jqbtk-row  {
+	text-align: center;
+}
+.jqbtk-container .btn {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 3em;
+	width: 2.2em;
+	height: 2em;
+	text-align: center;
+	margin: 2px;
+	border: 1px solid #d7d7d7;
+	background-color: #f6f9f6;
+}
+.jqbtk-container .jqbtk-space {
+	width: 12em;
+}
+.jqbtk-container .jqbtk-shift {
+	width: 4.4em;
+}
+.jqbtk-container .jqbtk-enter {
+	width: 4em;
+}
+.jqbtk-container .jqbtk-del {
+	width: 4.5em;
+	background-color: white;
+	border: 1px solid #d7d7d7;
+}
+.popover {
+	max-width: 800px;
+}
+.keyboard-container{
+	overflow: hidden;
+	position:relative;
+}
+.keyboard-container .popover{
+	left:0px !important;
+	top:0px !important;
+	width:100%;
+	height:100%;
+	border:none;
+}

@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Grão Fácil</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets\plugins\bootstrap-4.4.1\css\bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="assets\plugins\bootstrap-4.4.1\navbars\navbars.css" rel="stylesheet"> -->
+    <link href="assets\plugins\fontawesome-6.7.1\css\all.min.css" rel="stylesheet">
+    <link href="assets\plugins\jqbtk\jqbtk.css" rel="stylesheet">
+    <link href="assets\custom.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container" style="max-width: 100%;">
+        <main role="main">
+            <!-- DIV INDEX -->
+            <div id="divIndex">
+                <video autoplay muted loop>
+                    <source src="assets\media\ini.mp4" type="video/mp4">
+                </video>
+                <button id="nextDivPeso" class="btn btn-warning btn-lg w-100 py-5 ct-animate-blink"
+                    style="position: fixed; bottom: 0; left: 0; font-size: 45px; border-radius: 0">
+                    <b><img src="assets\media\click.svg" width="35px" class="mb-2"
+                            style="opacity: 0.7">&nbsp;&nbsp;TOQUE AQUI<br>PARA INICIAR O PEDIDO</b>
+                </button>
+            </div>
+
+            <!-- DIV PESO -->
+            <div id="divPeso" class="d-none">
+                <div class="row py-3" style="background-color: #f6f9f6">
+                    <div class="col-sm-3">
+                        <button id="prevDivIndex" class="btn btn-outline-danger btn-sm">Cancelar Pedido</button>
+                    </div>
+                    <div class="col-sm-6 text-center my-auto">
+                        <span class="text-muted">Etapa 1/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sessão</span>
+                        <span class="text-muted spanRelogio">00</span>
+                        <hr>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button class="btn btn-outline-secondary btn-sm" data-toggle="modal"
+                            data-target="#infoModal">Info</button>
+                        <button class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#supportModal">Suporte</button>
+                    </div>
+                    <div class="col-sm-12 mt-4 mb-5">
+                    </div>
+                    <div class="col-sm-5 text-right pMilho d-none">
+                        <img src="assets\media\milho.png" width="130px">
+                    </div>
+                    <div class="col-sm-7 pMilho d-none">
+                        <span class="mb-0" style="font-size: 1.75rem; font-weight:500;">Grão de</span><br>
+                        <span class="text-warning" style="font-size: 80px;"><b>Milho</b></span>
+                    </div>
+                    <div class="col-sm-5 text-right pSoja d-none">
+                        <img src="assets\media\soja.png" width="130px">
+                    </div>
+                    <div class="col-sm-7 pSoja d-none">
+                        <span class="mb-0" style="font-size: 1.75rem; font-weight:500;">Grão de</span><br>
+                        <span class="text-warning" style="font-size: 80px;"><b>Soja</b></span>
+                    </div>
+                    <div class="col-sm-12 mb-4">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 200px">
+                    <div class="col-sm-12 text-center">
+                        <h3 class="text-muted">Quanto você<br>deseja comprar hoje?</h3>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 50px">
+                    <div class="col-sm-3 text-right my-auto">
+                        <img src="assets\media\minus.svg" class="mt-3" id="minus" width="50px" style="opacity: 0.5">
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <b class="pt-0" style="font-size: 150px;" id="peso">0</b><span class="text-muted"
+                            style="font-size: 1.75rem; font-weight:500;">KG</span>
+                    </div>
+                    <div class="col-sm-3 text-left my-auto">
+                        <img src="assets\media\plus.svg" class="mt-3" id="plus" width="50px" style="opacity: 0.5">
+                    </div>
+                    <div class="col-sm-12 text-center mt-2">
+                        <h3 class="text-muted">R$ <span id="valor">0,00</span></h3>
+                    </div>
+                </div>
+                <button id="nextDivDados" class="btn btn-warning btn-lg w-100 py-5"
+                    style="position: fixed; bottom: 0; left: 0; font-size: 45px; border-radius: 0">
+                    <b>PRÓXIMO</b>
+                </button>
+            </div>
+
+            <!-- DIV DADOS -->
+            <div id="divDados" class="d-none">
+                <div class="row py-3" style="background-color: #f6f9f6">
+                    <div class="col-sm-3">
+                        <button id="prevDivPeso" class="btn btn-outline-secondary btn-sm">Voltar</button>
+                    </div>
+                    <div class="col-sm-6 text-center my-auto">
+                        <span class="text-muted">Etapa 2/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sessão</span>
+                        <span class="text-muted spanRelogio">00</span>
+                        <hr>
+                        <small class="text-muted">Resumo:</small><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoPeso"></span>KG de
+                            <span class="resumoProduto"></span> (R$ <span class="resumoValor"></span>)</b>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#supportModal">Suporte</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 150px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted">Qual seu CPF/CNPJ?</h3><br>
+                        <input type="text" class="form-control keyboard" style="font-size: 45px" id="cpf"
+                            autocomplete="off" placeholder="___.___.___-__" value="06732543563">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 150px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted">Qual seu número de celular? <small>(WhatsApp com DDD)</small></h3><br>
+                        <input type="text" class="form-control keyboard" style="font-size: 45px" id="cel"
+                            autocomplete="off" placeholder="(__) _____-____" value="74999779552">
+                    </div>
+                </div>
+                <button id="nextDivMetodo" class="btn btn-warning btn-lg w-100 py-5"
+                    style="position: fixed; bottom: 0; left: 0; font-size: 45px; border-radius: 0">
+                    <b>PRÓXIMO</b>
+                </button>
+            </div>
+
+            <!-- DIV METODO -->
+            <div id="divMetodo" class="d-none">
+                <div class="row py-3" style="background-color: #f6f9f6">
+                    <div class="col-sm-3">
+                        <button id="prevDivDados" class="btn btn-outline-secondary btn-sm">Voltar</button>
+                    </div>
+                    <div class="col-sm-6 text-center my-auto">
+                        <span class="text-muted">Etapa 3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sessão</span>
+                        <span class="text-muted spanRelogio">00</span>
+                        <hr>
+                        <small class="text-muted">Resumo:</small><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoPeso"></span>KG de
+                            <span class="resumoProduto"></span> (R$ <span class="resumoValor"></span>)</b><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b>Dados
+                            Pessoais</b>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#supportModal">Suporte</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 150px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted">Como deseja pagar?</h3>
+                        <div class="row mt-5" id="metodosPagamento"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIV PAGAMENTO -->
+            <div id="divPagamento" class="d-none">
+                <div class="row py-3" style="background-color: #f6f9f6">
+                    <div class="col-sm-3">
+                        <button id="cancelarVenda" class="btn btn-outline-danger btn-sm">Cancelar Pedido</button>
+                    </div>
+                    <div class="col-sm-6 text-center my-auto">
+                        <span class="text-muted">Etapa 4/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aguardando
+                            Pagamento</span>
+                        <hr>
+                        <small class="text-muted">Resumo:</small><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoPeso"></span>KG de
+                            <span class="resumoProduto"></span> (R$ <span class="resumoValor"></span>)</b><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b>Dados
+                            Pessoais</b><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoMetodo"></span></b>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#supportModal">Suporte</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 80px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted mt-4">Estamos quase lá...</h3>
+                        <h4 class="text-muted" style="margin-top: 60px;">Pague por QRCode no<br>aplicativo do seu
+                            banco.</h4>
+                        <div class="row text-center mt-4" id="codigoPagamento">
+                            <div class="d-flex w-100 justify-content-center"
+                                style="margin-top: 150px; margin-bottom: 100px;">
+                                <div class="spinner-grow mr-3 text-warning" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-grow mr-3 text-warning" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-warning" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="infoPagamento" class="d-none">
+                            <p class="text-muted" style="margin-top: 30px;">
+                                Não se preocupe em enviar o comprovante,<br>
+                                assim que o sistema identificar o pagamento,<br>
+                                a máquina começará a despejar o grão.<br>
+                                Simples assim!<br>
+                            </p>
+                            <h1 style="margin-top: 60px;">
+                                Seu código:<br>
+                                <b class="codigoVenda"></b>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIV CARGA -->
+            <div id="divCarga" class="d-none">
+                <div class="row py-3" style="background-color: #f6f9f6">
+                    <div class="col-sm-3">
+                        <!-- <button id="cancelarVenda" class="btn btn-outline-danger btn-sm">Cancelar Pedido</button> -->
+                    </div>
+                    <div class="col-sm-6 text-center my-auto">
+                        <span class="text-muted">Etapa 5/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aguarde a
+                            Carga</span>
+                        <hr>
+                        <small class="text-muted">Resumo:</small><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoPeso"></span>KG de
+                            <span class="resumoProduto"></span> (R$ <span class="resumoValor"></span>)</b><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b>Dados
+                            Pessoais</b><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoMetodo"></span></b><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b>Recebemos o
+                            pagamento</b><br>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#supportModal">Suporte</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 100px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted mt-4">Agora vamos encher o silo!</h3>
+                        <h4 class="text-muted" style="margin-top: 0px;">Aguarde um instante...</h4>
+                        <div class="row text-center mt-4"></div>
+                        <div class="col-sm-12 text-center pMilho d-nones" style="margin-top: 120px;">
+                            <img src="assets\media\01.jpg" width="250px">
+                        </div>
+                        <div class="d-flex w-100 justify-content-center"
+                            style="margin-top: 50px; margin-bottom: 100px;">
+                            <div class="spinner-grow mr-3 text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow mr-3 text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <h1 style="margin-top: 60px;">
+                            Seu código:<br>
+                            <b class="codigoVenda"></b>
+                        </h1>
+                        <div id="pesoCarga" class="d-none"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    </main>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="supportModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="supportModalLabel">Precisa de Ajuda?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    Temos um suporte dedicado para te ajudar na sua compra.<br>
+                    É bem simples, leia o código abaixo e você será direcionado
+                    para nosso WhatsApp, ou, adicione nosso número e nos contate.
+                    <br><br>
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3y8Y73m8MDpyJgJMTZq6KOPC7TODE4ar6xA&s">
+                    <br><br>
+                    <h3>77 99999-9999</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Informações</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    produto = <span id="infoProduto"></span> <br>
+                    pesoIntervalo = <span id="infoPesoIntervalo"></span> <br>
+                    valorKG = <span id="infoValorKG"></span> <br>
+                    pesoMaximo = <span id="infoPesoMaximo"></span> <br>
+                    pesoAtual = <span id="infoPesoAtual"></span> <br>
+                    valorAtual = <span id="infoValorAtual"></span> <br>
+                    internet = <span id="infoInternet"></span> <br>
+                    load = <span id="infoLoad"></span> <br>
+                    status = <span id="infoStatus"></span> <br><br>
+                    <button id="rebootPC" class="btn btn-danger">Reiniciar PC</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets\plugins\jquery\jquery-3.7.1.js">
+    </script>
+    <script src="assets\plugins\bootstrap-4.0.0\js\popper.min.js"></script>
+    <script src="assets\plugins\bootstrap-4.4.1\js\bootstrap.min.js"></script>
+    <script src="assets\plugins\jqbtk\jqbtk.js"></script>
+    <script src="assets\plugins\mask\jquery.mask.js"></script>
+    <script src="assets\plugins\cleave\cleave.min.js"></script>
+    <script src="assets\plugins\sweetalert\sweetalert.min.js"></script>
+    <script src="assets\custom.js"></script>
+</body>
+
+</html>

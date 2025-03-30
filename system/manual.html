@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Grão Fácil</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets\plugins\bootstrap-4.4.1\css\bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="assets\plugins\bootstrap-4.4.1\navbars\navbars.css" rel="stylesheet"> -->
+    <link href="assets\plugins\fontawesome-6.7.1\css\all.min.css" rel="stylesheet">
+    <link href="assets\plugins\jqbtk\jqbtk.css" rel="stylesheet">
+    <link href="assets\custom.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container" style="max-width: 100%;">
+        <main role="main">
+            <!-- DIV DADOS -->
+            <div id="divDados">
+                <div class="row py-3" style="background-color: #f6f9f6">
+                    <div class="col-sm-3">
+                        <a href="index.html" class="btn btn-outline-success btn-sm">Operar Online</a>
+                    </div>
+                    <div class="col-sm-6 text-center my-auto">
+                        <span class="text-muted">Operação Manual</span>
+                        <!-- <hr>
+                        <small class="text-muted">Resumo:</small><br>
+                        <img src="assets\media\check.svg" id="minus" width="16px" style="opacity: 0.5"> <b><span
+                                class="resumoPeso"></span>KG de
+                            <span class="resumoProduto"></span> (R$ <span class="resumoValor"></span>)</b> -->
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button class="btn btn-outline-primary btn-sm" data-toggle="modal"
+                            data-target="#supportModal">Suporte</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 150px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted">Código</h3><br>
+                        <input type="text" class="form-control keyboard" style="font-size: 45px" id="codigoManual"
+                            autocomplete="off" value="">
+                    </div>
+                </div>
+                <!-- <div class="row" style="margin-top: 150px">
+                    <div class="col-sm-8 text-center mx-auto">
+                        <h3 class="text-muted">Qual seu número de celular? <small>(WhatsApp com DDD)</small></h3><br>
+                        <input type="text" class="form-control keyboard" style="font-size: 45px" id="cel"
+                            autocomplete="off" placeholder="(__) _____-____" value="">
+                    </div>
+                </div> -->
+                <button id="carregar" class="btn btn-warning btn-lg w-100 py-5"
+                    style="position: fixed; bottom: 0; left: 0; font-size: 45px; border-radius: 0">
+                    <b>PRÓXIMO</b>
+                </button>
+            </div>
+    </div>
+
+
+    </main>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="supportModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="supportModalLabel">Precisa de Ajuda?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    Temos um suporte dedicado para te ajudar na sua compra.<br>
+                    É bem simples, leia o código abaixo e você será direcionado
+                    para nosso WhatsApp, ou, adicione nosso número e nos contate.
+                    <br><br>
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3y8Y73m8MDpyJgJMTZq6KOPC7TODE4ar6xA&s">
+                    <br><br>
+                    <h3>77 99999-9999</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Informações</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    produto = <span id="infoProduto"></span> <br>
+                    pesoIntervalo = <span id="infoPesoIntervalo"></span> <br>
+                    valorKG = <span id="infoValorKG"></span> <br>
+                    pesoMaximo = <span id="infoPesoMaximo"></span> <br>
+                    pesoAtual = <span id="infoPesoAtual"></span> <br>
+                    valorAtual = <span id="infoValorAtual"></span> <br>
+                    internet = <span id="infoInternet"></span> <br>
+                    load = <span id="infoLoad"></span> <br>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets\plugins\jquery\jquery-3.7.1.js">
+    </script>
+    <script src="assets\plugins\bootstrap-4.0.0\js\popper.min.js"></script>
+    <script src="assets\plugins\bootstrap-4.4.1\js\bootstrap.min.js"></script>
+    <script src="assets\plugins\jqbtk\jqbtk.js"></script>
+    <script src="assets\plugins\mask\jquery.mask.js"></script>
+    <script src="assets\plugins\cleave\cleave.min.js"></script>
+    <script src="assets\plugins\sweetalert\sweetalert.min.js"></script>
+    <script src="assets\plugins\FileSaver\FileSaver.js"></script>
+    <script src="assets\manual.js"></script>
+
+    <script>
+        $('#codigoManual').keyboard({
+            type: 'tel',
+        });
+    </script>
+</body>
+
+</html>
